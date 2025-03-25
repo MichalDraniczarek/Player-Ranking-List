@@ -1,0 +1,114 @@
+div.sorting-method-container
+{
+display: flex;
+flex-direction: column;
+border:1px solid red;
+position: absolute;
+top:50px;
+left:40%;
+width:300px;
+padding:10px;
+border-radius: 10px;
+border:2px solid black;
+background-color: rgba($color: white, $alpha: 0.25);
+
+-webkit-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+-moz-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+
+    div.sorting-method
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        p.sorting-title
+        {
+            color:white;
+            font-size:22px;
+            margin:0;
+            padding: 0;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+
+
+        select.sorting-type
+        {
+            width:80%;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            padding:4px;
+            background-color: rgba($color: #205aa5, $alpha: 0.6);
+            color:white;
+            font-weight: 700;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        /*
+            ??????????????????????????????{
+        */
+        select.sorting-type option
+        {
+            text-align: center;
+            text-indent: 40%;
+        }
+
+        select.sorting-type option:nth-child(odd)
+        {
+            background-color: rgba($color: #205aa5, $alpha: 0.6);
+        }
+
+        select.sorting-type option:hover
+        {
+            cursor: pointer;
+            color: red;
+        }
+
+        /*
+            }??????????????????????????????
+        */ 
+
+    }
+
+    div.rendering-time
+    {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        border-top: 1px solid white;
+        text-wrap: nowrap;
+
+        p.render-time-text
+        {
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            padding: 10px;
+        }
+
+        p.render-time-value
+        {
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            margin-left:10px;
+            border:2px solid white;
+            padding:10px 20px;
+            background-color: rgba($color: #000000, $alpha: 0.6);
+        }        
+    }
+}
+
+
+
+
+
+
+

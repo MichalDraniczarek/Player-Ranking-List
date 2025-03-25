@@ -1,0 +1,150 @@
+
+
+.palyers-setting
+{   
+    position: absolute;
+    left: 50px;
+    top:50px;
+    border-radius: 10px;
+    border:2px solid black;
+    background-color: rgba($color: white, $alpha: 0.25);
+
+    -webkit-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+-moz-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+
+    p.text-palyers-setting
+    {
+        color:white;
+        font-size: 22px;
+        font-weight: 700;
+        margin:10px;
+        margin-left: 20px;
+        letter-spacing: 1.5px;
+
+    }
+
+    input.players-value
+    {
+        color: white;
+        margin:5px;
+        margin-left: 20px;
+        font-size:26px;
+        text-align: center;
+        border: 2px solid black;
+        background-color: rgba($color: #000000, $alpha: .7);
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover{
+            border: 2px solid #3b0404;
+        }
+
+        // &:active{
+        //     border: 2px solid #3b0404;
+        // }
+    }
+
+    button.confirm-players-value-active
+    {
+        color: white;
+        margin:5px;
+        padding:5px 30px;
+        margin-left: 20px;
+        font-size:20px;
+        text-align: center;
+        background-color: rgba($color: #0b550b, $alpha: .9);
+        border: 2px solid #0b550b;
+        border-radius: 20px;
+        cursor: pointer;
+        animation-duration: 5s;
+        transition-duration: 0.6s;
+
+        &:hover{
+            background-color: rgba($color: #039703, $alpha: .9);
+            box-shadow: 0px 0px 8px 1px #039703;
+            border: 2px solid #039703;
+        }
+        
+    }
+
+
+    button.confirm-players-value-unactive
+    {
+        color: white;
+        margin:5px;
+        padding:5px 30px;
+        margin-left: 20px;
+        font-size:20px;
+        text-align: center;
+        background-color: rgba($color: #525252, $alpha: .9);
+        border: 2px solid black;
+        border-radius: 20px;
+        animation-duration: 5s;
+        transition-duration: 0.6s;
+    }
+
+
+    // button.repeat-the-draw
+    // {
+    //     color: white;
+    //     margin:5px;
+    //     padding:5px 30px;
+    //     margin-left: 20px;
+    //     font-size:20px;
+    //     text-align: center;
+    //     background-color: rgba($color: #d3d673, $alpha: .9);
+    //     border: none;
+    //     border-radius: 20px;
+    //     cursor: pointer;
+    //     animation-duration: 5s;
+    //     transition-duration: 0.6s;
+
+    //     &:hover{
+    //         background-color: rgba($color: #c9d60b, $alpha: .9);
+    //         box-shadow: 0px 0px 8px 1px #c9d60b;
+    //     } 
+    // }
+
+
+    button.delete-values-active
+    {
+        display: block;
+        color: white;
+        margin:20px;
+        padding:5px 30px;
+        margin-left: 20px;
+        font-size:20px;
+        text-align: center;
+        background-color: rgba($color: #8d2929, $alpha: .9);
+        border: 2px solid #8d2929;
+        border-radius: 20px;
+        cursor: pointer;
+        animation-duration: 5s;
+        transition-duration: 0.6s;
+
+        &:hover{
+            background-color: rgba($color: #d40a0a, $alpha: .9);
+            box-shadow: 0px 0px 8px 1px #d40a0a;
+        } 
+    }
+
+    button.delete-values-unactive
+    {
+        display: block;
+        color: white;
+        margin:20px;
+        padding:5px 30px;
+        margin-left: 20px;
+        font-size:20px;
+        text-align: center;
+        background-color: rgba($color: #525252, $alpha: .9);
+        border: 2px solid black;
+        border-radius: 20px;
+        animation-duration: 5s;
+        transition-duration: 0.6s;
+    }
+
+
+}
+

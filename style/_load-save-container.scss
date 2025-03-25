@@ -1,0 +1,90 @@
+
+div.load-save-content
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:1px solid red;
+    position: absolute;
+    top:50px;
+    right:50px;
+    padding:10px;
+    border-radius: 10px;
+    border:2px solid black;
+    background-color: rgba($color: white, $alpha: 0.25);
+
+    -webkit-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+    -moz-box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+    box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
+
+    select.save-list
+    {
+        min-width:200px;
+        text-align: center;
+        border: none;
+        font-size: 16px;
+        padding:4px;
+        background-color: rgba($color: #205aa5, $alpha: 0.6);
+        color:white;
+        font-weight: 700;
+        
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+        /*
+            ?????????????????????????????? {
+        */
+    select.save-list option:nth-child(odd)
+    {
+        background-color: rgba($color: #205aa5, $alpha: 0.6);
+    }
+
+    select.save-list option:hover
+    {
+        cursor: pointer;
+        color: red;
+    }
+        /*
+            }??????????????????????????????
+        */
+    button.save
+    {
+        font-size: 16px;
+        padding: 4px 30px;
+        margin-left: 10px;
+        background-color: #596068;
+        border:none;
+        color: white;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover{
+            background-color: #3a4046;
+        }
+    }
+
+    button.load
+    {
+        font-size: 16px;
+        padding: 4px 30px;
+        margin-left: 10px;
+        background-color: #596068;
+        border:none;
+        color: white;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover{
+            background-color: #3a4046;
+        }
+    }
+
+
+
+}

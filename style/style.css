@@ -1,0 +1,533 @@
+body {
+  background-image: url("../img/space-background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*      IMPORTS     */
+.palyers-setting {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: -50px 47px 28px 21px rgba(0, 0, 0, 0.51);
+}
+.palyers-setting p.text-palyers-setting {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 10px;
+  margin-left: 20px;
+  letter-spacing: 1.5px;
+}
+.palyers-setting input.players-value {
+  color: white;
+  margin: 5px;
+  margin-left: 20px;
+  font-size: 26px;
+  text-align: center;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.palyers-setting input.players-value:hover {
+  border: 2px solid #3b0404;
+}
+.palyers-setting button.confirm-players-value-active {
+  color: white;
+  margin: 5px;
+  padding: 5px 30px;
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(11, 85, 11, 0.9);
+  border: 2px solid #0b550b;
+  border-radius: 20px;
+  cursor: pointer;
+  animation-duration: 5s;
+  transition-duration: 0.6s;
+}
+.palyers-setting button.confirm-players-value-active:hover {
+  background-color: rgba(3, 151, 3, 0.9);
+  box-shadow: 0px 0px 8px 1px #039703;
+  border: 2px solid #039703;
+}
+.palyers-setting button.confirm-players-value-unactive {
+  color: white;
+  margin: 5px;
+  padding: 5px 30px;
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(82, 82, 82, 0.9);
+  border: 2px solid black;
+  border-radius: 20px;
+  animation-duration: 5s;
+  transition-duration: 0.6s;
+}
+.palyers-setting button.delete-values-active {
+  display: block;
+  color: white;
+  margin: 20px;
+  padding: 5px 30px;
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(141, 41, 41, 0.9);
+  border: 2px solid #8d2929;
+  border-radius: 20px;
+  cursor: pointer;
+  animation-duration: 5s;
+  transition-duration: 0.6s;
+}
+.palyers-setting button.delete-values-active:hover {
+  background-color: rgba(212, 10, 10, 0.9);
+  box-shadow: 0px 0px 8px 1px #d40a0a;
+}
+.palyers-setting button.delete-values-unactive {
+  display: block;
+  color: white;
+  margin: 20px;
+  padding: 5px 30px;
+  margin-left: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(82, 82, 82, 0.9);
+  border: 2px solid black;
+  border-radius: 20px;
+  animation-duration: 5s;
+  transition-duration: 0.6s;
+}
+
+div.ranking-list-container {
+  position: absolute;
+  justify-content: center;
+  top: 300px;
+  border: 1px solid rgb(0, 0, 0);
+  width: 75%;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding-top: 50px;
+  padding-bottom: 200px;
+  clear: both;
+}
+div.ranking-list-container div.table-description-stats table {
+  color: white;
+  border: 2px solid white;
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: 5%;
+}
+div.ranking-list-container div.table-description-stats table tr {
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 5px white;
+  color: rgb(243, 249, 252);
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(1) {
+  width: 100px;
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(2) {
+  width: 160px;
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(3) {
+  width: 280px;
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(4) {
+  width: 250px;
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(5) {
+  width: 260px;
+}
+div.ranking-list-container div.table-description-stats table tr td:nth-child(6) {
+  width: 290px;
+}
+div.ranking-list-container div.table-description-stats table tr td {
+  text-align: center;
+  border: 1px solid white;
+  height: 50px;
+  text-shadow: 1px 1px 5px white;
+  color: rgb(243, 249, 252);
+  font-size: 26px;
+  padding: 20px 0;
+}
+div.ranking-list-container div.table-description-stats table tr td img {
+  display: inline;
+  position: relative;
+  top: -10px;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(106, 186, 223, 0.4);
+  border-radius: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+div.ranking-list-container div.table-description-stats table tr td img:hover {
+  background-color: rgba(106, 186, 223, 0.7);
+}
+div.ranking-list-container div.palyer-data-table table {
+  color: white;
+  border: 2px solid white;
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: 5%;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(1) {
+  width: 100px;
+  font-size: 26px;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(2) {
+  width: 160px;
+  font-size: 22px;
+  color: #07ac14;
+  text-shadow: 1px 1px 2px #07ac14;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(3) {
+  width: 280px;
+  color: #6abadf;
+  text-shadow: 1px 1px 4px #6abadf;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(4) {
+  width: 250px;
+  color: #6abadf;
+  text-shadow: 1px 1px 4px #6abadf;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(5) {
+  width: 260px;
+  color: #6abadf;
+  text-shadow: 1px 1px 4px #6abadf;
+}
+div.ranking-list-container div.palyer-data-table table tr td:nth-child(6) {
+  width: 290px;
+  color: #db2a2a;
+  text-shadow: 1px 1px 8px #db2a2a;
+  font-size: 36px;
+}
+div.ranking-list-container div.palyer-data-table table tr td {
+  text-align: center;
+  border: 1px solid white;
+  height: 50px;
+  text-shadow: 1px 1px 5px white;
+  color: rgb(243, 249, 252);
+  font-size: 22px;
+}
+div.ranking-list-container div.palyer-data-table table tr td img {
+  display: inline;
+  position: relative;
+  top: -10px;
+  height: 20px;
+  width: 20px;
+  background-color: rgba(106, 186, 223, 0.4);
+  border-radius: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+div.ranking-list-container div.palyer-data-table table tr td img:hover {
+  background-color: rgba(106, 186, 223, 0.7);
+}
+div.ranking-list-container span.tooltip-cont {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+div.ranking-list-container span.tooltip-cont span {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #6abadf;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 0;
+  font-size: 20px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: -40px;
+  left: 40px;
+  padding: 10px;
+  border: 1px solid rgba(106, 186, 223, 0.6);
+}
+div.ranking-list-container span.tooltip-cont:hover span {
+  visibility: visible;
+}
+
+.players-on-ranking {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  outline: none;
+  background-color: rgb(84, 139, 211);
+  border: 2px solid rgb(63, 66, 250);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
+.players-on-ranking option:nth-child(odd) {
+  background-color: #205aa5;
+}
+
+.move-inside-ranking {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding: 10px;
+  height: 40px;
+  width: 200px;
+  font-size: 36px;
+  color: white;
+}
+
+.move-inside-ranking div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  padding: 10px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.move-inside-ranking div:hover {
+  color: rgb(84, 139, 211);
+}
+
+.hidden-class-for-arrows {
+  display: none;
+}
+
+.move-table-backward {
+  color: red;
+}
+
+.move-table-forward {
+  color: green;
+}
+
+div.load-save-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: -50px 47px 28px 21px rgba(0, 0, 0, 0.51);
+  /*
+      ?????????????????????????????? {
+  */
+  /*
+      }??????????????????????????????
+  */
+}
+div.load-save-content select.save-list {
+  min-width: 200px;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  padding: 4px;
+  background-color: rgba(32, 90, 165, 0.6);
+  color: white;
+  font-weight: 700;
+}
+div.load-save-content select.save-list:hover {
+  cursor: pointer;
+}
+div.load-save-content select.save-list option:nth-child(odd) {
+  background-color: rgba(32, 90, 165, 0.6);
+}
+div.load-save-content select.save-list option:hover {
+  cursor: pointer;
+  color: red;
+}
+div.load-save-content button.save {
+  font-size: 16px;
+  padding: 4px 30px;
+  margin-left: 10px;
+  background-color: #596068;
+  border: none;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+div.load-save-content button.save:hover {
+  background-color: #3a4046;
+}
+div.load-save-content button.load {
+  font-size: 16px;
+  padding: 4px 30px;
+  margin-left: 10px;
+  background-color: #596068;
+  border: none;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+div.load-save-content button.load:hover {
+  background-color: #3a4046;
+}
+
+div.sorting-method-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  position: absolute;
+  top: 50px;
+  left: 40%;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: -50px 47px 28px 21px rgba(0, 0, 0, 0.51);
+}
+div.sorting-method-container div.sorting-method {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*
+      ??????????????????????????????{
+  */
+  /*
+      }??????????????????????????????
+  */
+}
+div.sorting-method-container div.sorting-method p.sorting-title {
+  color: white;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+div.sorting-method-container div.sorting-method select.sorting-type {
+  width: 80%;
+  text-align: center;
+  border: none;
+  font-size: 16px;
+  padding: 4px;
+  background-color: rgba(32, 90, 165, 0.6);
+  color: white;
+  font-weight: 700;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+div.sorting-method-container div.sorting-method select.sorting-type:hover {
+  cursor: pointer;
+}
+div.sorting-method-container div.sorting-method select.sorting-type option {
+  text-align: center;
+  text-indent: 40%;
+}
+div.sorting-method-container div.sorting-method select.sorting-type option:nth-child(odd) {
+  background-color: rgba(32, 90, 165, 0.6);
+}
+div.sorting-method-container div.sorting-method select.sorting-type option:hover {
+  cursor: pointer;
+  color: red;
+}
+div.sorting-method-container div.rendering-time {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  border-top: 1px solid white;
+  text-wrap: nowrap;
+}
+div.sorting-method-container div.rendering-time p.render-time-text {
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+}
+div.sorting-method-container div.rendering-time p.render-time-value {
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  margin-left: 10px;
+  border: 2px solid white;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+div.invalid-data-popup {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  color: white;
+  z-index: 10;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+div.popup-warning {
+  width: 500px;
+  height: 200px;
+  border: 4px solid rgb(9, 37, 73);
+  background-color: rgb(188, 212, 236);
+  text-align: center;
+}
+div.popup-warning p.warning-text {
+  display: block;
+  font-size: 30px;
+  color: rgb(105, 21, 21);
+  font-weight: 700;
+}
+div.popup-warning p.tooltip-text {
+  display: block;
+  font-size: 22px;
+  color: rgb(95, 86, 86);
+  font-weight: 700;
+}
+div.popup-warning button.close-popup-btn {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(207, 72, 72);
+  border: 1px solid rgb(207, 72, 72);
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  animation-duration: 5s;
+  transition-duration: 0.6s;
+}
+div.popup-warning button.close-popup-btn:hover {
+  background-color: rgb(206, 26, 26);
+}
+
+.display-hidden {
+  display: none !important;
+}/*# sourceMappingURL=style.css.map */

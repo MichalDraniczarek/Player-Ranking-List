@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Game ranking</title>
+</head>
+<body>
+    <div class="invalid-data-popup display-hidden">
+        <div class="popup-warning">
+            <p class="warning-text">Nieprawidłowe dane wejściowe!!!</p>
+            <p class="tooltip-text">Proszę wpisać liczbę z zakresu od 1 do 999</p>
+            <button class="close-popup-btn">Zamknij okno</button>
+        </div>
+    </div>
+    
+    <div class="palyers-setting">
+        <p class="text-palyers-setting">Podaj liczbę graczy do wygenerowania</p>
+        <input type="text" class="players-value" id="players-value" placeholder="number of players">
+        <button class="confirm-players-value-active">Potwierdź</button>
+        <!--<button class="repeat-the-draw">Losuj ponownie</button>-->
+        <button class="delete-values-unactive">Usuń wszystko</button>
+    </div>
+
+    <div class="sorting-method-container">
+        <div class="sorting-method">
+            <p class="sorting-title">Wybierz metodę sortowania</p>
+            <select name="" class="sorting-type">
+                <option>Bubble sort(v1)</option>
+                <option>Bubble sort(v2)</option>
+                <option>Selection Sort</option>
+                <option>Insertion Sort</option>
+                <option>Quick Sort</option>
+            </select>
+        </div>
+        
+        <div class="rendering-time">
+            <p class="render-time-text">Czas obliczeń wyniósł:</p>
+            <p class="render-time-value">20s</p>
+        </div>
+    </div>
+
+
+    <div class="load-save-content">
+        <select name="" id="" class="save-list">
+            <option>save_1 &ltempty&gt</option>
+            <option>save_2 &ltempty&gt</option>
+            <option>save_3 &ltempty&gt</option>
+            <option>save_4 &ltempty&gt</option>
+            <option>save_5 &ltempty&gt</option>
+        </select>
+        <button class="save">Zapisz</button>
+        <button class="load">Wczytaj</button>
+    </div>
+
+
+
+
+    <div class="ranking-list-container">
+        <select name="" class="players-on-ranking">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        <div class="table-description-stats">
+            <table>
+                <tr> 
+                    <td>Rank</td> 
+                    <td>Player Id <span class="tooltip-cont"><img id="palyer-id" src="/img/uphigh.png"><span>Sortuj</span></span> </td> 
+                    <td>Economy Points <span class="tooltip-cont"><img id="economy" src="/img/uphigh.png"><span>Sortuj</span></span> </td> 
+                    <td>Fleet Strenght <span class="tooltip-cont"><img id="fleet" src="/img/uphigh.png"><span>Sortuj</span></span> </td> 
+                    <td>Reasearch Points <span class="tooltip-cont"><img id="reasearch" src="/img/uphigh.png"><span>Sortuj</span></span> </td> 
+                    <td>Total Points <span class="tooltip-cont"><img id="total-points" src="/img/uphigh.png"><span>Sortuj</span></span> </td> 
+                </tr> 
+            </table>
+        </div>
+        <div class="palyer-data-table">
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <script type="module" src="dist/app.js"></script>
+</body>
+</html>

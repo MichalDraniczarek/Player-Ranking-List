@@ -1,0 +1,314 @@
+div.ranking-list-container
+{
+    position: absolute;
+    justify-content: center;
+    top:300px;
+    border:1px solid rgb(0, 0, 0);
+    width:75%;
+    background-color: rgba($color: #000000, $alpha: .85);
+    padding-top: 50px;
+    padding-bottom: 200px;
+    clear:both;
+    
+    
+    
+
+     div.table-description-stats {
+        table
+        {
+            color: white;
+            border:2px solid white;
+            border-collapse: collapse;
+            width: 90%;
+            margin-left: 5%;
+        tr
+        {
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 5px white;
+            color: rgb(243, 249, 252);
+        }
+
+        tr td:nth-child(1)
+        {
+            width: 100px;
+
+        } 
+    
+        tr td:nth-child(2)
+        {
+            width: 160px;
+
+        }  
+        
+        tr td:nth-child(3)
+        {
+            width: 280px; 
+        }   
+    
+        tr td:nth-child(4)
+        {
+            width: 250px;
+        }    
+    
+        
+        tr td:nth-child(5)
+        {
+            width: 260px; 
+        }   
+    
+        tr td:nth-child(6)
+        {
+            width: 290px;
+
+        } 
+    
+        tr td
+        { 
+            text-align: center;
+            border:1px solid white;
+            height:50px;
+            text-shadow: 1px 1px 5px white;
+            color: rgb(243, 249, 252);
+            font-size:26px;
+
+            padding: 20px 0;
+            img{
+                display:inline;
+                position: relative;
+                top:-10px;
+                height:20px;
+                width:20px;
+                background-color: rgba($color: #6abadf, $alpha: 0.4);
+                border-radius: 20px;
+                margin-left: 5px;
+                cursor: pointer;
+                transition-duration: 0.3s;
+                //border:1px solid red;
+                &:hover{
+                    background-color: rgba($color: #6abadf, $alpha: 0.7);
+                }
+    
+            }
+        } 
+        }
+    }
+    
+    
+    div.palyer-data-table table
+    {
+        color: white;
+        border:2px solid white;
+        border-collapse: collapse;
+        width: 90%;
+        margin-left: 5%;
+
+        
+    
+
+
+    tr td:nth-child(1)
+    {
+        width: 100px;
+        font-size:26px;
+    } 
+
+    tr td:nth-child(2)
+    {
+        width: 160px;
+        font-size: 22px;
+        color: #07ac14;
+        text-shadow: 1px 1px 2px #07ac14;
+    }  
+    
+    tr td:nth-child(3)
+    {
+        width: 280px;
+        color: #6abadf;
+        text-shadow: 1px 1px 4px #6abadf;   
+    }   
+
+    tr td:nth-child(4)
+    {
+        width: 250px;
+        color: #6abadf;
+        text-shadow: 1px 1px 4px #6abadf;   
+    }    
+
+    
+    tr td:nth-child(5)
+    {
+        width: 260px;
+        color: #6abadf;
+        text-shadow: 1px 1px 4px #6abadf;   
+    }   
+
+    tr td:nth-child(6)
+    {
+        width: 290px;
+        color: #db2a2a;
+        text-shadow: 1px 1px 8px #db2a2a;
+        font-size: 36px; 
+    } 
+
+    tr td
+    { 
+        text-align: center;
+        border:1px solid white;
+        height:50px;
+        text-shadow: 1px 1px 5px white;
+        color: rgb(243, 249, 252);
+        font-size:22px;
+        img{
+            display:inline;
+            position: relative;
+            top:-10px;
+            height:20px;
+            width:20px;
+            background-color: rgba($color: #6abadf, $alpha: 0.4);
+            border-radius: 20px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition-duration: 0.3s;
+            //border:1px solid red;
+            &:hover{
+                background-color: rgba($color: #6abadf, $alpha: 0.7);
+            }
+
+        }
+    } 
+
+    // tr:nth-child(1)
+    // {
+    //     font-size:30px;
+    //     letter-spacing: 2px;
+    //     text-shadow: 1px 1px 5px white;
+    //     color: rgb(243, 249, 252);
+    // }
+
+    // tr:nth-child(1) td
+    // {
+    //     padding: 20px 0px;
+    //     text-shadow: 1px 1px 5px white;
+    //     color: rgb(243, 249, 252);
+    //     font-size: 24px;
+    // }
+
+
+
+
+
+
+    }
+
+    span.tooltip-cont{
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+
+    }
+    span.tooltip-cont span {
+        visibility: hidden;
+        background-color: rgba($color: #000000, $alpha: 0.9);
+        color: #6abadf;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px 0;
+        font-size: 20px;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -40px;
+        left:40px;
+        padding: 10px;
+        border:1px solid rgba($color: #6abadf, $alpha: 0.6)
+        
+      }
+      
+      span.tooltip-cont:hover span {
+        visibility: visible;
+      }
+    // table tr th:nth-child(1)
+    // {
+    //     min-width: 30px;
+    //     max-width: 30px;
+    //     border:1px solid white;
+    //     height:50px;
+    // }
+    
+
+
+
+}
+
+
+.players-on-ranking
+{
+    position: absolute;
+    top:5px;
+    right:5px;
+    width:120px;
+    height:30px;
+    text-align: center;
+    outline: none;
+    background-color: rgb(84, 139, 211);
+    border:2px solid rgb(63, 66, 250);
+    font-size: 16px;
+    font-weight: 700;
+    color:white;
+}
+
+
+.players-on-ranking option:nth-child(odd)
+{
+    background-color: #205aa5;
+}
+
+.move-inside-ranking
+{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    margin-top:20px;
+    padding: 10px;
+    height: 40px;
+    width:200px;
+    font-size: 36px;
+    color:white;
+    //border:1px solid red;
+    
+
+}
+
+.move-inside-ranking div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    //border:1px solid red;
+    padding:10px;
+    cursor:pointer;
+    transition-duration: 0.3s;
+
+    &:hover{
+        color:rgb(84, 139, 211);
+    }
+}
+
+
+.hidden-class-for-arrows
+{
+    display:none;
+}
+
+.move-table-backward
+{
+    color:red;
+}
+
+.move-table-forward
+{
+    color:green;
+}
