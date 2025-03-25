@@ -198,8 +198,6 @@ rankingListContainerEventHandler.addEventListener("click", (e) => {
 
 });
 
-
-
 //      Remove rendered table,set render starting position at "0" and render new table
 export function restartRankingSetStartingPositionToZero(){
 
