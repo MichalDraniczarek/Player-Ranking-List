@@ -31,16 +31,20 @@ export function isValueCorrect(playersValueInput, MAX_CHARACTERS_IN_INPUT_VALUE)
 }
 //  Randomly generate Players in object
 export function fillPlayerObArrayWithRandomlyGeneratedObjects(currentPlayerValue, playerOb) {
+    let convertedToString;
     for (let i = 0; i < currentPlayerValue; i++) {
         let tempOb = {
+            id: 0,
             playerID: "hehehe",
             playerResearchPoints: 1,
             playerFleetPoints: 2,
             playerEconomyPoints: 3,
             playerTotalPoints: 4
-        }; // ???????????????????????? deklarowanie be komponentów
+        };
         let minAvailablePointsValue = 10;
         let maxAvailablePointsValue = 100;
+        convertedToString = i.toString();
+        tempOb.id = convertedToString;
         if (i < 10) {
             tempOb.playerID = "Player0000" + i;
         }
@@ -61,8 +65,6 @@ export function fillPlayerObArrayWithRandomlyGeneratedObjects(currentPlayerValue
         tempOb.playerEconomyPoints = Math.floor(Math.random() * (maxAvailablePointsValue - minAvailablePointsValue + 1) + minAvailablePointsValue);
         tempOb.playerTotalPoints = tempOb.playerResearchPoints + tempOb.playerFleetPoints + tempOb.playerEconomyPoints;
         playerOb.push(tempOb);
-        //      https://stackoverflow.com/questions/40250139/how-can-i-push-an-object-into-an-array
-        //console.log("tablica obiektów playerOb ma długość:                          " + playerOb.length )
     }
 }
 ;
@@ -84,11 +86,12 @@ export function renderPlayerObArrayOnScreen(playerOb, tempAmountOfPlayersInRanki
         const confirmTableRollBtn = document.querySelector(".confirm-players-value-unactive");
         const tableMain = document.querySelector(".palyer-data-table table");
         const tableArrows = document.querySelector(".palyer-data-table div.move-inside-ranking");
+        const lenghtForCurrentObjectsArray = playerOb.length;
         let inputPlayerValue = document.querySelector("#players-value");
         inputPlayerValue.value = '';
         tableArrows.remove();
         tableMain.remove();
-        playerOb.splice(0, currentPlayerValue);
+        playerOb.splice(0, lenghtForCurrentObjectsArray);
         isTableRender = false;
         // add and remove classes for buttons "usuń wszystko" and "potwierdź"
         deleteTableBtn.classList.remove("delete-values-active");
@@ -98,6 +101,7 @@ export function renderPlayerObArrayOnScreen(playerOb, tempAmountOfPlayersInRanki
         numberOfPlayersDispalyInTableLocked = true;
         numberOfPlayersDispalyInTableLockedFn(numberOfPlayersDispalyInTableLocked);
         setAllValuesrankingSortingStateToFalse(rankingSortingState);
+        checkObArray(playerOb);
     });
     //creating arrows to move table backward and forward
     const arrowParentContainer = document.querySelector(".palyer-data-table");
@@ -142,11 +146,6 @@ export function renderPlayerObArrayOnScreen(playerOb, tempAmountOfPlayersInRanki
         TableWitgPlayers.append(rankingTableRowWithData);
         isTableRender = true;
     }
-    //   adding event for clicking arrow right
-    //   let moveTableContentForward = document.querySelector(".move-table-forward");
-    //    moveTableContentForward.addEventListener("click", (e) => {
-    //         console.log("kliknąłeś przycisk myszki do przodu lamusie");
-    //    });
 }
 //      Render table using "arrow forward"
 export function renderTablemovingForward(tempAmountOfPlayersInRanking, palyersArrayIndexInObject, expectedAmoutOfTableColumns, playerOb, isTableRender, restOfDivisionOfPlayersForLastColumn, movingTableArrowForwardIsLocked) {
@@ -156,18 +155,14 @@ export function renderTablemovingForward(tempAmountOfPlayersInRanking, palyersAr
     //  iteration counter
     let currentPosition = palyersArrayIndexInObject * tempAmountOfPlayersInRanking;
     let lastPositionInRanking;
-    console.log("palyersArrayIndexInObject " + palyersArrayIndexInObject);
-    console.log("currentPosition " + currentPosition);
     //  check wheather currentPosition is last column
     if (palyersArrayIndexInObject < expectedAmoutOfTableColumns) {
-        console.log("hahahahahahahahha wiedzialem!!!!" + palyersArrayIndexInObject + "  a  " + expectedAmoutOfTableColumns);
         lastPositionInRanking = currentPosition + tempAmountOfPlayersInRanking;
     }
     else if (palyersArrayIndexInObject >= expectedAmoutOfTableColumns) {
         lastPositionInRanking = currentPosition + restOfDivisionOfPlayersForLastColumn;
         movingTableArrowForwardIsLocked = true;
     }
-    console.log("MOVUNG FORWARD: " + movingTableArrowForwardIsLocked);
     // create rest of "table data <td>" contained in object "playerOb"
     for (let i = currentPosition; i < lastPositionInRanking; i++) {
         const rankingTableRowWithData = document.createElement("tr");
@@ -203,7 +198,6 @@ export function renderTablemovingForward(tempAmountOfPlayersInRanking, palyersAr
     arrowParentContainer.append(arrowContainer);
     arrowContainer.append(shiftRankingPositionWithArrowLeft);
     arrowContainer.append(shiftRankingPositionWithArrowRight);
-    console.log("MOVUNG FORWARD: " + movingTableArrowForwardIsLocked);
     return movingTableArrowForwardIsLocked;
 }
 //      Render table using "arrow backward"
@@ -316,11 +310,11 @@ export function renderPlayerObArrayOnScreenAfterSelectHTMLElementChange(playerOb
 }
 export function checkObArray(playerOb) {
     for (let i = 0; i < playerOb.length; i++) {
+        console.log(`jest: ${playerOb[i].id}`);
         console.log(`jest: ${playerOb[i].playerID}`);
         console.log(`jest: ${playerOb[i].playerResearchPoints}`);
         console.log(`jest: ${playerOb[i].playerFleetPoints}`);
         console.log(`jest: ${playerOb[i].playerEconomyPoints}`);
         console.log(`jest: ${playerOb[i].playerTotalPoints}`);
     }
-    console.log(playerOb);
 }

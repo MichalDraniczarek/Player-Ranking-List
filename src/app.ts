@@ -6,10 +6,11 @@ import { jsSortingFunctionForplayerTotalPoints,jsSortingFunctionForplayerPlayerI
 import { jsSortingFunctionForplayerResearch} from "./functions/sortByResearch.js";
 import { jsSortingFunctionForplayerFleet} from "./functions/sortByFleet.js";
 import { jsSortingFunctionForplayerEconomy} from "./functions/sortByEconomy.js";
-
+import { savePlayersInSlot} from "./functions/saveRankingData.js";
 
 
 let playerOb: {
+    id: string;
     playerID: string;
     playerResearchPoints: number;
     playerFleetPoints: number;
@@ -19,7 +20,7 @@ let playerOb: {
 
 ];
 
-console.log(playerOb);
+
 const MAX_CHARACTERS_IN_INPUT_VALUE:Number = 4;
 
 let basicDataFromInput = [];
@@ -39,6 +40,10 @@ let tempForMaximumPlayersInRanking:number = 0;
 let sortingData;
 let selectSortingMethodHTML: HTMLSelectElement = document.querySelector(".sorting-type");
 let valueOfSortingCalculations: HTMLParagraphElement = document.querySelector(".render-time-value")
+let currentSaveLoadSlot:number = 0;
+let currentDataSlotPath:string;
+//tessting buttons
+const pushData = document.querySelector("button.button-transfer");
 
 
 const rankingListContainerEventHandler: HTMLBodyElement = document.querySelector(".ranking-list-container");
@@ -46,13 +51,19 @@ const generatePlayersBtn: HTMLButtonElement = document.querySelector(".confirm-p
 const playersValueInput: HTMLInputElement = document.querySelector("#players-value");
 const closePopupInvalidPlayerNumber: HTMLButtonElement = document.querySelector(".close-popup-btn");
 const baseValueForMaximumPlayersInRanking: HTMLSelectElement = document.querySelector(".players-on-ranking");
+const saveDataButton: HTMLButtonElement = document.querySelector("button.save");
+const saveSlotsContainer: HTMLSelectElement = document.querySelector("select.save-list");
+const loadDataButton: HTMLButtonElement = document.querySelector("button.load");
 baseValueForMaximumPlayersInRanking.selectedIndex = 0;
+
+
 //all sorting cols
 const sortTotalPointsBtn = document.querySelector("#total-points");
 const sortResearchBtn = document.querySelector("#reasearch");
 const sortFleetBtn = document.querySelector("#fleet");
 const sortEconomyBtn = document.querySelector("#economy");
 const sortPlayerIDBtn = document.querySelector("#palyer-id");
+
 
 
 
@@ -75,15 +86,12 @@ numberOfPlayersDispalyInTableLockedFn(numberOfPlayersDispalyInTableLocked);
    {
     const tableContainer = document.querySelector(".ranking-list-container");
     const tableMian = document.querySelector(".ranking-list-container table");
-    //tableContainer.removeChild(tableMian);
-    console.log(tableContainer);
-    console.log(tableMian);
+
    }
 
 
 
-
-
+   
 
 
    //           ALL EVENTS IMPLEMENTATIONS
@@ -105,9 +113,7 @@ generatePlayersBtn.addEventListener("click", (e) => {
         // and render table including generated data
     if(isInputVlaueCorrect){
         //removeAllTableData();
-        console.log(baseValueForMaximumPlayersInRanking.value);
         let tempAmountOfPlayersInRanking:number = Number(baseValueForMaximumPlayersInRanking.value);
-        console.log("wartość number sralalaal to: " + tempAmountOfPlayersInRanking);
 
         fillPlayerObArrayWithRandomlyGeneratedObjects(currentPlayerValue, playerOb);
         renderPlayerObArrayOnScreen(playerOb,tempAmountOfPlayersInRanking,currentPlayerValue, isTableRender, numberOfPlayersDispalyInTableLocked,isTableArrowsRendered,rankingSortingState);
@@ -118,7 +124,6 @@ generatePlayersBtn.addEventListener("click", (e) => {
         renderedTableColumnsCounter(tempAmountOfPlayersInRanking);
         
     }else if(!isInputVlaueCorrect){
-        console.log("co za bzdury z czarnej dziury");
         displayPopupWrongInitialData();
     }
 
@@ -136,30 +141,25 @@ closePopupInvalidPlayerNumber.addEventListener("click", (e) => {
 rankingListContainerEventHandler.addEventListener("click", (e) => {
 
     if(e.target.classList.contains("move-table-forward") && (!movingTableArrowForwardIsLocked)){
-        console.log("MOVUNG FORWARD BEFOR: " + movingTableArrowForwardIsLocked);
-        console.log("odpaliłem zdarzenie na strzałce");
         palyersArrayIndexInObject++;
         movingTableArrowBackwardIsLocked = false;
         removeTableData();
         let tempAmountOfPlayersInRanking:number = Number(baseValueForMaximumPlayersInRanking.value);
         movingTableArrowForwardIsLocked = renderTablemovingForward(tempAmountOfPlayersInRanking, palyersArrayIndexInObject, expectedAmoutOfTableColumns, playerOb, isTableRender, restOfDivisionOfPlayersForLastColumn, movingTableArrowForwardIsLocked);
-        console.log("MOVUNG FORWARD AFTER: " + movingTableArrowForwardIsLocked);
+
     }
 
 });
 
     //      event for moving players in table backward
 rankingListContainerEventHandler.addEventListener("click", (e) => {
-    console.log("movingTableArrowBackwardIsLocked w ciele zdarzenia wywołującego:" + movingTableArrowBackwardIsLocked);
     if(e.target.classList.contains("move-table-backward") && (!movingTableArrowBackwardIsLocked)){
-        console.log("odpaliłem zdarzenie na strzałce");
         palyersArrayIndexInObject--;
         movingTableArrowForwardIsLocked = false;
         removeTableData();
         let tempAmountOfPlayersInRanking:number = Number(baseValueForMaximumPlayersInRanking.value);
         movingTableArrowBackwardIsLocked = renderTablemovingBackward(tempAmountOfPlayersInRanking, palyersArrayIndexInObject, expectedAmoutOfTableColumns, playerOb, isTableRender, restOfDivisionOfPlayersForLastColumn,movingTableArrowBackwardIsLocked);
 
-        //palyersArrayIndexInObject = 
     }
 
 });
@@ -169,19 +169,11 @@ rankingListContainerEventHandler.addEventListener("click", (e) => {
 
     playerMaxInRankingValue = Number(baseValueForMaximumPlayersInRanking.selectedIndex);   
 
-    console.log("event się odpalił");
     if(e.target.classList.contains("players-on-ranking")){
-        console.log("jestem w rankingu");
-        console.log(baseValueForMaximumPlayersInRanking.selectedIndex);
-        console.log(baseValueForMaximumPlayersInRanking.value);
         tempForMaximumPlayersInRanking = baseValueForMaximumPlayersInRanking.selectedIndex;
-
-        console.log("JAKI JEST NASZ STAN     " + tempForMaximumPlayersInRanking + "   " +   playerMaxInRankingValue);
-
     }
 
     if(tempForMaximumPlayersInRanking != playerMaxInRankingValue){
-        console.log("zmieniłem się NA LEPSZE     " + tempForMaximumPlayersInRanking + "   " +   playerMaxInRankingValue);
         palyersArrayIndexInObject = 0;
         removeTableData();
         let tempAmountOfPlayersInRanking:number = Number(baseValueForMaximumPlayersInRanking.value);
@@ -247,39 +239,6 @@ sortEconomyBtn.addEventListener("click", (e) => {
 });
 
 
-// function jsSortingFunctionForplayerPlayerID(playerOb){
-
-//     if(rankingSortingState[0] == false){
-//     playerOb.sort((a, b) => {
-//         if (a.playerID.toLowerCase() > b.playerID.toLowerCase()) {
-//           return -1;
-//         }
-//         if (a.playerID.toLowerCase() < b.playerID.toLowerCase()) {
-//           return 1;
-//         }
-//         return 0;
-//       });
-      
-    
-
-//     setAllValuesrankingSortingStateToFalse(rankingSortingState);
-
-//     playerOb.reverse();
-
-//     restartRankingSetStartingPositionToZero();
-
-//     rankingSortingState[0] = true;
-//     }else{
-//         playerOb.reverse();
-
-//         restartRankingSetStartingPositionToZero();
-//         rankingSortingState[0] = false;
-//     }
-   
-
-// }
-
-
 //      Sort "player name" value in table
 sortPlayerIDBtn.addEventListener("click", (e) => {
 
@@ -287,14 +246,106 @@ sortPlayerIDBtn.addEventListener("click", (e) => {
 
 });
 
+//  Save your data in JSON format
+
+saveDataButton.addEventListener("click",(e) => {
+
+    currentSaveLoadSlot = Number(saveSlotsContainer.selectedIndex);
+
+    if(currentSaveLoadSlot == 0){
+        currentDataSlotPath = `data01`;
+    }else if(currentSaveLoadSlot == 1){
+        currentDataSlotPath = `data02`;
+    }else if(currentSaveLoadSlot == 2){
+        currentDataSlotPath = `data03`;
+    }else if(currentSaveLoadSlot == 3){
+        currentDataSlotPath = `data04`;
+    }else if(currentSaveLoadSlot == 4){
+        currentDataSlotPath = `data05`;
+    }
 
 
-// rankingListContainerEventHandler.addEventListener("click", (e) => {
-//     if (e.target.classList.contains("delete")) {
-//         console.log("udalo się kliknąć!!!!!");
-//     }
+    savePlayersInSlot(currentDataSlotPath,playerOb);
 
-// });
+})
+
+
+    async function gatherDataFn(currentDataSlotPath){
+        try {
+            const response = await fetch(`http://localhost:3000/${currentDataSlotPath}`); 
+            if (!response.ok) {
+              throw new Error(`Błąd sieci: ${response.status}`);
+            }
+        
+            const data = await response.json(); 
+            return data; 
+        
+          } catch (error) {
+            console.error('Wystąpił błąd:', error);
+            return null; 
+          }
+        }
+
+
+
+
+        async function loadPlayersfromSlot(currentDataSlotPath, playerOb) {
+
+
+            try {
+                const dane = await gatherDataFn(currentDataSlotPath);
+                
+                if (dane) {
+                    dane.forEach(obiekt => console.log(obiekt));
+        
+                    playerOb.length = 0;
+                    playerOb.push(...dane);
+        
+                    console.log("Zawartość playerOb po przypisaniu:", playerOb[0]);
+                } else {
+                    console.log('Nie udało się pobrać danych.');
+                }
+            } catch (error) {
+                console.error('Błąd podczas ładowania:', error);
+            }
+           
+            palyersArrayIndexInObject = 0;
+            removeTableData();
+            let tempAmountOfPlayersInRanking:number = Number(baseValueForMaximumPlayersInRanking.value);
+            renderedTableColumnsCounter(tempAmountOfPlayersInRanking);
+            renderPlayerObArrayOnScreenAfterSelectHTMLElementChange(playerOb,tempAmountOfPlayersInRanking,currentPlayerValue, isTableRender, numberOfPlayersDispalyInTableLocked,isTableArrowsRendered);
+            
+            numberOfPlayersDispalyInTableLocked = false;
+            numberOfPlayersDispalyInTableLockedFn(numberOfPlayersDispalyInTableLocked);
+            
+    }
+    
+
+
+
+//  Save your data in JSON format
+
+loadDataButton.addEventListener("click",(e) => {
+
+    currentSaveLoadSlot = Number(saveSlotsContainer.selectedIndex);
+
+    if(currentSaveLoadSlot == 0){
+        currentDataSlotPath = `data01`;
+    }else if(currentSaveLoadSlot == 1){
+        currentDataSlotPath = `data02`;
+    }else if(currentSaveLoadSlot == 2){
+        currentDataSlotPath = `data03`;
+    }else if(currentSaveLoadSlot == 3){
+        currentDataSlotPath = `data04`;
+    }else if(currentSaveLoadSlot == 4){
+        currentDataSlotPath = `data05`;
+    }
+
+
+    loadPlayersfromSlot(currentDataSlotPath,playerOb);
+
+})
+
 
 
 

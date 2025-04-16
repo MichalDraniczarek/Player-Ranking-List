@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { renderPlayerObArrayOnScreenAfterSelectHTMLElementChange, renderTablemovingBackward, renderTablemovingForward, removeTableData, fillPlayerObArrayWithRandomlyGeneratedObjects, isValueCorrect, renderPlayerObArrayOnScreen } from "./functions/rankingGenerationFn.js";
 import { numberOfPlayersDispalyInTableLockedFn } from "./functions/startFunctions.js";
 import { displayPopupWrongInitialData, closePopupWrongInitialData } from "./functions/popupWarnings.js";
@@ -5,8 +14,8 @@ import { jsSortingFunctionForplayerTotalPoints, jsSortingFunctionForplayerPlayer
 import { jsSortingFunctionForplayerResearch } from "./functions/sortByResearch.js";
 import { jsSortingFunctionForplayerFleet } from "./functions/sortByFleet.js";
 import { jsSortingFunctionForplayerEconomy } from "./functions/sortByEconomy.js";
+import { savePlayersInSlot } from "./functions/saveRankingData.js";
 let playerOb = [];
-console.log(playerOb);
 const MAX_CHARACTERS_IN_INPUT_VALUE = 4;
 let basicDataFromInput = [];
 let rankingSortingState = [false, false, false, false, false];
@@ -24,11 +33,18 @@ let tempForMaximumPlayersInRanking = 0;
 let sortingData;
 let selectSortingMethodHTML = document.querySelector(".sorting-type");
 let valueOfSortingCalculations = document.querySelector(".render-time-value");
+let currentSaveLoadSlot = 0;
+let currentDataSlotPath;
+//tessting buttons
+const pushData = document.querySelector("button.button-transfer");
 const rankingListContainerEventHandler = document.querySelector(".ranking-list-container");
 const generatePlayersBtn = document.querySelector(".confirm-players-value-active");
 const playersValueInput = document.querySelector("#players-value");
 const closePopupInvalidPlayerNumber = document.querySelector(".close-popup-btn");
 const baseValueForMaximumPlayersInRanking = document.querySelector(".players-on-ranking");
+const saveDataButton = document.querySelector("button.save");
+const saveSlotsContainer = document.querySelector("select.save-list");
+const loadDataButton = document.querySelector("button.load");
 baseValueForMaximumPlayersInRanking.selectedIndex = 0;
 //all sorting cols
 const sortTotalPointsBtn = document.querySelector("#total-points");
@@ -48,9 +64,6 @@ function renderedTableColumnsCounter(tempAmountOfPlayersInRanking) {
 function removeAllTableData() {
     const tableContainer = document.querySelector(".ranking-list-container");
     const tableMian = document.querySelector(".ranking-list-container table");
-    //tableContainer.removeChild(tableMian);
-    console.log(tableContainer);
-    console.log(tableMian);
 }
 //           ALL EVENTS IMPLEMENTATIONS
 generatePlayersBtn.addEventListener("click", (e) => {
@@ -66,9 +79,7 @@ generatePlayersBtn.addEventListener("click", (e) => {
         // and render table including generated data
         if (isInputVlaueCorrect) {
             //removeAllTableData();
-            console.log(baseValueForMaximumPlayersInRanking.value);
             let tempAmountOfPlayersInRanking = Number(baseValueForMaximumPlayersInRanking.value);
-            console.log("wartość number sralalaal to: " + tempAmountOfPlayersInRanking);
             fillPlayerObArrayWithRandomlyGeneratedObjects(currentPlayerValue, playerOb);
             renderPlayerObArrayOnScreen(playerOb, tempAmountOfPlayersInRanking, currentPlayerValue, isTableRender, numberOfPlayersDispalyInTableLocked, isTableArrowsRendered, rankingSortingState);
             numberOfPlayersDispalyInTableLocked = false;
@@ -76,7 +87,6 @@ generatePlayersBtn.addEventListener("click", (e) => {
             renderedTableColumnsCounter(tempAmountOfPlayersInRanking);
         }
         else if (!isInputVlaueCorrect) {
-            console.log("co za bzdury z czarnej dziury");
             displayPopupWrongInitialData();
         }
     }
@@ -87,42 +97,30 @@ closePopupInvalidPlayerNumber.addEventListener("click", (e) => {
 //      event for moving players in table forward
 rankingListContainerEventHandler.addEventListener("click", (e) => {
     if (e.target.classList.contains("move-table-forward") && (!movingTableArrowForwardIsLocked)) {
-        console.log("MOVUNG FORWARD BEFOR: " + movingTableArrowForwardIsLocked);
-        console.log("odpaliłem zdarzenie na strzałce");
         palyersArrayIndexInObject++;
         movingTableArrowBackwardIsLocked = false;
         removeTableData();
         let tempAmountOfPlayersInRanking = Number(baseValueForMaximumPlayersInRanking.value);
         movingTableArrowForwardIsLocked = renderTablemovingForward(tempAmountOfPlayersInRanking, palyersArrayIndexInObject, expectedAmoutOfTableColumns, playerOb, isTableRender, restOfDivisionOfPlayersForLastColumn, movingTableArrowForwardIsLocked);
-        console.log("MOVUNG FORWARD AFTER: " + movingTableArrowForwardIsLocked);
     }
 });
 //      event for moving players in table backward
 rankingListContainerEventHandler.addEventListener("click", (e) => {
-    console.log("movingTableArrowBackwardIsLocked w ciele zdarzenia wywołującego:" + movingTableArrowBackwardIsLocked);
     if (e.target.classList.contains("move-table-backward") && (!movingTableArrowBackwardIsLocked)) {
-        console.log("odpaliłem zdarzenie na strzałce");
         palyersArrayIndexInObject--;
         movingTableArrowForwardIsLocked = false;
         removeTableData();
         let tempAmountOfPlayersInRanking = Number(baseValueForMaximumPlayersInRanking.value);
         movingTableArrowBackwardIsLocked = renderTablemovingBackward(tempAmountOfPlayersInRanking, palyersArrayIndexInObject, expectedAmoutOfTableColumns, playerOb, isTableRender, restOfDivisionOfPlayersForLastColumn, movingTableArrowBackwardIsLocked);
-        //palyersArrayIndexInObject = 
     }
 });
 //      is event "change amount of players in select element" occur
 rankingListContainerEventHandler.addEventListener("click", (e) => {
     playerMaxInRankingValue = Number(baseValueForMaximumPlayersInRanking.selectedIndex);
-    console.log("event się odpalił");
     if (e.target.classList.contains("players-on-ranking")) {
-        console.log("jestem w rankingu");
-        console.log(baseValueForMaximumPlayersInRanking.selectedIndex);
-        console.log(baseValueForMaximumPlayersInRanking.value);
         tempForMaximumPlayersInRanking = baseValueForMaximumPlayersInRanking.selectedIndex;
-        console.log("JAKI JEST NASZ STAN     " + tempForMaximumPlayersInRanking + "   " + playerMaxInRankingValue);
     }
     if (tempForMaximumPlayersInRanking != playerMaxInRankingValue) {
-        console.log("zmieniłem się NA LEPSZE     " + tempForMaximumPlayersInRanking + "   " + playerMaxInRankingValue);
         palyersArrayIndexInObject = 0;
         removeTableData();
         let tempAmountOfPlayersInRanking = Number(baseValueForMaximumPlayersInRanking.value);
@@ -159,33 +157,89 @@ sortFleetBtn.addEventListener("click", (e) => {
 sortEconomyBtn.addEventListener("click", (e) => {
     jsSortingFunctionForplayerEconomy(playerOb, selectSortingMethodHTML, rankingSortingState, valueOfSortingCalculations);
 });
-// function jsSortingFunctionForplayerPlayerID(playerOb){
-//     if(rankingSortingState[0] == false){
-//     playerOb.sort((a, b) => {
-//         if (a.playerID.toLowerCase() > b.playerID.toLowerCase()) {
-//           return -1;
-//         }
-//         if (a.playerID.toLowerCase() < b.playerID.toLowerCase()) {
-//           return 1;
-//         }
-//         return 0;
-//       });
-//     setAllValuesrankingSortingStateToFalse(rankingSortingState);
-//     playerOb.reverse();
-//     restartRankingSetStartingPositionToZero();
-//     rankingSortingState[0] = true;
-//     }else{
-//         playerOb.reverse();
-//         restartRankingSetStartingPositionToZero();
-//         rankingSortingState[0] = false;
-//     }
-// }
 //      Sort "player name" value in table
 sortPlayerIDBtn.addEventListener("click", (e) => {
     jsSortingFunctionForplayerPlayerID(playerOb, rankingSortingState);
 });
-// rankingListContainerEventHandler.addEventListener("click", (e) => {
-//     if (e.target.classList.contains("delete")) {
-//         console.log("udalo się kliknąć!!!!!");
-//     }
-// });
+//  Save your data in JSON format
+saveDataButton.addEventListener("click", (e) => {
+    currentSaveLoadSlot = Number(saveSlotsContainer.selectedIndex);
+    if (currentSaveLoadSlot == 0) {
+        currentDataSlotPath = `data01`;
+    }
+    else if (currentSaveLoadSlot == 1) {
+        currentDataSlotPath = `data02`;
+    }
+    else if (currentSaveLoadSlot == 2) {
+        currentDataSlotPath = `data03`;
+    }
+    else if (currentSaveLoadSlot == 3) {
+        currentDataSlotPath = `data04`;
+    }
+    else if (currentSaveLoadSlot == 4) {
+        currentDataSlotPath = `data05`;
+    }
+    savePlayersInSlot(currentDataSlotPath, playerOb);
+});
+function gatherDataFn(currentDataSlotPath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield fetch(`http://localhost:3000/${currentDataSlotPath}`);
+            if (!response.ok) {
+                throw new Error(`Błąd sieci: ${response.status}`);
+            }
+            const data = yield response.json();
+            return data;
+        }
+        catch (error) {
+            console.error('Wystąpił błąd:', error);
+            return null;
+        }
+    });
+}
+function loadPlayersfromSlot(currentDataSlotPath, playerOb) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const dane = yield gatherDataFn(currentDataSlotPath);
+            if (dane) {
+                dane.forEach(obiekt => console.log(obiekt));
+                playerOb.length = 0;
+                playerOb.push(...dane);
+                console.log("Zawartość playerOb po przypisaniu:", playerOb[0]);
+            }
+            else {
+                console.log('Nie udało się pobrać danych.');
+            }
+        }
+        catch (error) {
+            console.error('Błąd podczas ładowania:', error);
+        }
+        palyersArrayIndexInObject = 0;
+        removeTableData();
+        let tempAmountOfPlayersInRanking = Number(baseValueForMaximumPlayersInRanking.value);
+        renderedTableColumnsCounter(tempAmountOfPlayersInRanking);
+        renderPlayerObArrayOnScreenAfterSelectHTMLElementChange(playerOb, tempAmountOfPlayersInRanking, currentPlayerValue, isTableRender, numberOfPlayersDispalyInTableLocked, isTableArrowsRendered);
+        numberOfPlayersDispalyInTableLocked = false;
+        numberOfPlayersDispalyInTableLockedFn(numberOfPlayersDispalyInTableLocked);
+    });
+}
+//  Save your data in JSON format
+loadDataButton.addEventListener("click", (e) => {
+    currentSaveLoadSlot = Number(saveSlotsContainer.selectedIndex);
+    if (currentSaveLoadSlot == 0) {
+        currentDataSlotPath = `data01`;
+    }
+    else if (currentSaveLoadSlot == 1) {
+        currentDataSlotPath = `data02`;
+    }
+    else if (currentSaveLoadSlot == 2) {
+        currentDataSlotPath = `data03`;
+    }
+    else if (currentSaveLoadSlot == 3) {
+        currentDataSlotPath = `data04`;
+    }
+    else if (currentSaveLoadSlot == 4) {
+        currentDataSlotPath = `data05`;
+    }
+    loadPlayersfromSlot(currentDataSlotPath, playerOb);
+});

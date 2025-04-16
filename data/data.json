@@ -1,0 +1,596 @@
+{
+  "data01": [
+    {
+      "id": "0",
+      "playerID": "Player00000",
+      "playerResearchPoints": 32,
+      "playerFleetPoints": 68,
+      "playerEconomyPoints": 53,
+      "playerTotalPoints": 153
+    },
+    {
+      "id": "1",
+      "playerID": "Player00001",
+      "playerResearchPoints": 66,
+      "playerFleetPoints": 58,
+      "playerEconomyPoints": 71,
+      "playerTotalPoints": 195
+    },
+    {
+      "id": "2",
+      "playerID": "Player00002",
+      "playerResearchPoints": 49,
+      "playerFleetPoints": 88,
+      "playerEconomyPoints": 48,
+      "playerTotalPoints": 185
+    },
+    {
+      "id": "3",
+      "playerID": "Player00003",
+      "playerResearchPoints": 26,
+      "playerFleetPoints": 59,
+      "playerEconomyPoints": 30,
+      "playerTotalPoints": 115
+    },
+    {
+      "id": "4",
+      "playerID": "Player00004",
+      "playerResearchPoints": 27,
+      "playerFleetPoints": 58,
+      "playerEconomyPoints": 13,
+      "playerTotalPoints": 98
+    },
+    {
+      "id": "5",
+      "playerID": "Player00005",
+      "playerResearchPoints": 97,
+      "playerFleetPoints": 51,
+      "playerEconomyPoints": 30,
+      "playerTotalPoints": 178
+    },
+    {
+      "id": "6",
+      "playerID": "Player00006",
+      "playerResearchPoints": 25,
+      "playerFleetPoints": 51,
+      "playerEconomyPoints": 77,
+      "playerTotalPoints": 153
+    },
+    {
+      "id": "7",
+      "playerID": "Player00007",
+      "playerResearchPoints": 12,
+      "playerFleetPoints": 50,
+      "playerEconomyPoints": 60,
+      "playerTotalPoints": 122
+    },
+    {
+      "id": "8",
+      "playerID": "Player00008",
+      "playerResearchPoints": 28,
+      "playerFleetPoints": 89,
+      "playerEconomyPoints": 25,
+      "playerTotalPoints": 142
+    },
+    {
+      "id": "9",
+      "playerID": "Player00009",
+      "playerResearchPoints": 74,
+      "playerFleetPoints": 42,
+      "playerEconomyPoints": 27,
+      "playerTotalPoints": 143
+    },
+    {
+      "id": "10",
+      "playerID": "Player00010",
+      "playerResearchPoints": 71,
+      "playerFleetPoints": 100,
+      "playerEconomyPoints": 53,
+      "playerTotalPoints": 224
+    },
+    {
+      "id": "11",
+      "playerID": "Player00011",
+      "playerResearchPoints": 80,
+      "playerFleetPoints": 80,
+      "playerEconomyPoints": 44,
+      "playerTotalPoints": 204
+    }
+  ],
+  "data02": [
+    {
+      "id": "0",
+      "playerID": "Player00000",
+      "playerResearchPoints": 57,
+      "playerFleetPoints": 57,
+      "playerEconomyPoints": 85,
+      "playerTotalPoints": 199
+    },
+    {
+      "id": "1",
+      "playerID": "Player00001",
+      "playerResearchPoints": 19,
+      "playerFleetPoints": 18,
+      "playerEconomyPoints": 64,
+      "playerTotalPoints": 101
+    },
+    {
+      "id": "2",
+      "playerID": "Player00002",
+      "playerResearchPoints": 56,
+      "playerFleetPoints": 46,
+      "playerEconomyPoints": 17,
+      "playerTotalPoints": 119
+    },
+    {
+      "id": "3",
+      "playerID": "Player00003",
+      "playerResearchPoints": 34,
+      "playerFleetPoints": 90,
+      "playerEconomyPoints": 65,
+      "playerTotalPoints": 189
+    },
+    {
+      "id": "4",
+      "playerID": "Player00004",
+      "playerResearchPoints": 57,
+      "playerFleetPoints": 25,
+      "playerEconomyPoints": 14,
+      "playerTotalPoints": 96
+    },
+    {
+      "id": "5",
+      "playerID": "Player00005",
+      "playerResearchPoints": 31,
+      "playerFleetPoints": 69,
+      "playerEconomyPoints": 68,
+      "playerTotalPoints": 168
+    },
+    {
+      "id": "6",
+      "playerID": "Player00006",
+      "playerResearchPoints": 18,
+      "playerFleetPoints": 24,
+      "playerEconomyPoints": 39,
+      "playerTotalPoints": 81
+    },
+    {
+      "id": "7",
+      "playerID": "Player00007",
+      "playerResearchPoints": 65,
+      "playerFleetPoints": 71,
+      "playerEconomyPoints": 41,
+      "playerTotalPoints": 177
+    },
+    {
+      "id": "8",
+      "playerID": "Player00008",
+      "playerResearchPoints": 44,
+      "playerFleetPoints": 76,
+      "playerEconomyPoints": 81,
+      "playerTotalPoints": 201
+    }
+  ],
+  "data03": [
+    {
+      "id": "0",
+      "playerID": "Player00000",
+      "playerResearchPoints": 95,
+      "playerFleetPoints": 89,
+      "playerEconomyPoints": 36,
+      "playerTotalPoints": 220
+    },
+    {
+      "id": "1",
+      "playerID": "Player00001",
+      "playerResearchPoints": 50,
+      "playerFleetPoints": 73,
+      "playerEconomyPoints": 25,
+      "playerTotalPoints": 148
+    },
+    {
+      "id": "2",
+      "playerID": "Player00002",
+      "playerResearchPoints": 15,
+      "playerFleetPoints": 11,
+      "playerEconomyPoints": 43,
+      "playerTotalPoints": 69
+    },
+    {
+      "id": "3",
+      "playerID": "Player00003",
+      "playerResearchPoints": 86,
+      "playerFleetPoints": 45,
+      "playerEconomyPoints": 41,
+      "playerTotalPoints": 172
+    },
+    {
+      "id": "4",
+      "playerID": "Player00004",
+      "playerResearchPoints": 14,
+      "playerFleetPoints": 61,
+      "playerEconomyPoints": 55,
+      "playerTotalPoints": 130
+    },
+    {
+      "id": "5",
+      "playerID": "Player00005",
+      "playerResearchPoints": 55,
+      "playerFleetPoints": 73,
+      "playerEconomyPoints": 25,
+      "playerTotalPoints": 153
+    },
+    {
+      "id": "6",
+      "playerID": "Player00006",
+      "playerResearchPoints": 29,
+      "playerFleetPoints": 69,
+      "playerEconomyPoints": 44,
+      "playerTotalPoints": 142
+    },
+    {
+      "id": "7",
+      "playerID": "Player00007",
+      "playerResearchPoints": 98,
+      "playerFleetPoints": 92,
+      "playerEconomyPoints": 72,
+      "playerTotalPoints": 262
+    }
+  ],
+  "data04": [
+    {
+      "id": "0",
+      "playerID": "Player00000",
+      "playerResearchPoints": 45,
+      "playerFleetPoints": 12,
+      "playerEconomyPoints": 100,
+      "playerTotalPoints": 157
+    },
+    {
+      "id": "1",
+      "playerID": "Player00001",
+      "playerResearchPoints": 70,
+      "playerFleetPoints": 85,
+      "playerEconomyPoints": 66,
+      "playerTotalPoints": 221
+    },
+    {
+      "id": "2",
+      "playerID": "Player00002",
+      "playerResearchPoints": 57,
+      "playerFleetPoints": 16,
+      "playerEconomyPoints": 70,
+      "playerTotalPoints": 143
+    },
+    {
+      "id": "3",
+      "playerID": "Player00003",
+      "playerResearchPoints": 79,
+      "playerFleetPoints": 79,
+      "playerEconomyPoints": 48,
+      "playerTotalPoints": 206
+    },
+    {
+      "id": "4",
+      "playerID": "Player00004",
+      "playerResearchPoints": 21,
+      "playerFleetPoints": 26,
+      "playerEconomyPoints": 36,
+      "playerTotalPoints": 83
+    },
+    {
+      "id": "5",
+      "playerID": "Player00005",
+      "playerResearchPoints": 91,
+      "playerFleetPoints": 100,
+      "playerEconomyPoints": 44,
+      "playerTotalPoints": 235
+    },
+    {
+      "id": "6",
+      "playerID": "Player00006",
+      "playerResearchPoints": 57,
+      "playerFleetPoints": 39,
+      "playerEconomyPoints": 70,
+      "playerTotalPoints": 166
+    },
+    {
+      "id": "7",
+      "playerID": "Player00007",
+      "playerResearchPoints": 82,
+      "playerFleetPoints": 17,
+      "playerEconomyPoints": 76,
+      "playerTotalPoints": 175
+    },
+    {
+      "id": "8",
+      "playerID": "Player00008",
+      "playerResearchPoints": 53,
+      "playerFleetPoints": 43,
+      "playerEconomyPoints": 71,
+      "playerTotalPoints": 167
+    },
+    {
+      "id": "9",
+      "playerID": "Player00009",
+      "playerResearchPoints": 11,
+      "playerFleetPoints": 69,
+      "playerEconomyPoints": 80,
+      "playerTotalPoints": 160
+    },
+    {
+      "id": "10",
+      "playerID": "Player00010",
+      "playerResearchPoints": 43,
+      "playerFleetPoints": 27,
+      "playerEconomyPoints": 31,
+      "playerTotalPoints": 101
+    },
+    {
+      "id": "11",
+      "playerID": "Player00011",
+      "playerResearchPoints": 66,
+      "playerFleetPoints": 31,
+      "playerEconomyPoints": 67,
+      "playerTotalPoints": 164
+    },
+    {
+      "id": "12",
+      "playerID": "Player00012",
+      "playerResearchPoints": 35,
+      "playerFleetPoints": 31,
+      "playerEconomyPoints": 44,
+      "playerTotalPoints": 110
+    },
+    {
+      "id": "13",
+      "playerID": "Player00013",
+      "playerResearchPoints": 92,
+      "playerFleetPoints": 40,
+      "playerEconomyPoints": 69,
+      "playerTotalPoints": 201
+    },
+    {
+      "id": "14",
+      "playerID": "Player00014",
+      "playerResearchPoints": 33,
+      "playerFleetPoints": 29,
+      "playerEconomyPoints": 25,
+      "playerTotalPoints": 87
+    },
+    {
+      "id": "15",
+      "playerID": "Player00015",
+      "playerResearchPoints": 87,
+      "playerFleetPoints": 12,
+      "playerEconomyPoints": 22,
+      "playerTotalPoints": 121
+    },
+    {
+      "id": "16",
+      "playerID": "Player00016",
+      "playerResearchPoints": 54,
+      "playerFleetPoints": 81,
+      "playerEconomyPoints": 96,
+      "playerTotalPoints": 231
+    },
+    {
+      "id": "17",
+      "playerID": "Player00017",
+      "playerResearchPoints": 26,
+      "playerFleetPoints": 35,
+      "playerEconomyPoints": 17,
+      "playerTotalPoints": 78
+    },
+    {
+      "id": "18",
+      "playerID": "Player00018",
+      "playerResearchPoints": 100,
+      "playerFleetPoints": 53,
+      "playerEconomyPoints": 94,
+      "playerTotalPoints": 247
+    },
+    {
+      "id": "19",
+      "playerID": "Player00019",
+      "playerResearchPoints": 12,
+      "playerFleetPoints": 56,
+      "playerEconomyPoints": 65,
+      "playerTotalPoints": 133
+    },
+    {
+      "id": "20",
+      "playerID": "Player00020",
+      "playerResearchPoints": 68,
+      "playerFleetPoints": 56,
+      "playerEconomyPoints": 98,
+      "playerTotalPoints": 222
+    },
+    {
+      "id": "21",
+      "playerID": "Player00021",
+      "playerResearchPoints": 19,
+      "playerFleetPoints": 22,
+      "playerEconomyPoints": 11,
+      "playerTotalPoints": 52
+    }
+  ],
+  "data05": [
+    {
+      "id": "43",
+      "playerID": "Player00043",
+      "playerResearchPoints": 39,
+      "playerFleetPoints": 48,
+      "playerEconomyPoints": 98,
+      "playerTotalPoints": 185
+    },
+    {
+      "id": "0",
+      "playerID": "Player00000",
+      "playerResearchPoints": 45,
+      "playerFleetPoints": 46,
+      "playerEconomyPoints": 94,
+      "playerTotalPoints": 185
+    },
+    {
+      "id": "1",
+      "playerID": "Player00001",
+      "playerResearchPoints": 90,
+      "playerFleetPoints": 50,
+      "playerEconomyPoints": 74,
+      "playerTotalPoints": 214
+    },
+    {
+      "id": "2",
+      "playerID": "Player00002",
+      "playerResearchPoints": 77,
+      "playerFleetPoints": 98,
+      "playerEconomyPoints": 14,
+      "playerTotalPoints": 189
+    },
+    {
+      "id": "3",
+      "playerID": "Player00003",
+      "playerResearchPoints": 14,
+      "playerFleetPoints": 33,
+      "playerEconomyPoints": 75,
+      "playerTotalPoints": 122
+    },
+    {
+      "id": "4",
+      "playerID": "Player00004",
+      "playerResearchPoints": 82,
+      "playerFleetPoints": 70,
+      "playerEconomyPoints": 17,
+      "playerTotalPoints": 169
+    },
+    {
+      "id": "5",
+      "playerID": "Player00005",
+      "playerResearchPoints": 80,
+      "playerFleetPoints": 73,
+      "playerEconomyPoints": 51,
+      "playerTotalPoints": 204
+    },
+    {
+      "id": "6",
+      "playerID": "Player00006",
+      "playerResearchPoints": 20,
+      "playerFleetPoints": 30,
+      "playerEconomyPoints": 97,
+      "playerTotalPoints": 147
+    },
+    {
+      "id": "7",
+      "playerID": "Player00007",
+      "playerResearchPoints": 65,
+      "playerFleetPoints": 95,
+      "playerEconomyPoints": 23,
+      "playerTotalPoints": 183
+    },
+    {
+      "id": "8",
+      "playerID": "Player00008",
+      "playerResearchPoints": 65,
+      "playerFleetPoints": 24,
+      "playerEconomyPoints": 41,
+      "playerTotalPoints": 130
+    },
+    {
+      "id": "9",
+      "playerID": "Player00009",
+      "playerResearchPoints": 90,
+      "playerFleetPoints": 98,
+      "playerEconomyPoints": 43,
+      "playerTotalPoints": 231
+    },
+    {
+      "id": "10",
+      "playerID": "Player00010",
+      "playerResearchPoints": 21,
+      "playerFleetPoints": 58,
+      "playerEconomyPoints": 67,
+      "playerTotalPoints": 146
+    },
+    {
+      "id": "11",
+      "playerID": "Player00011",
+      "playerResearchPoints": 88,
+      "playerFleetPoints": 50,
+      "playerEconomyPoints": 25,
+      "playerTotalPoints": 163
+    },
+    {
+      "id": "12",
+      "playerID": "Player00012",
+      "playerResearchPoints": 83,
+      "playerFleetPoints": 81,
+      "playerEconomyPoints": 16,
+      "playerTotalPoints": 180
+    },
+    {
+      "id": "13",
+      "playerID": "Player00013",
+      "playerResearchPoints": 53,
+      "playerFleetPoints": 20,
+      "playerEconomyPoints": 78,
+      "playerTotalPoints": 151
+    },
+    {
+      "id": "14",
+      "playerID": "Player00014",
+      "playerResearchPoints": 17,
+      "playerFleetPoints": 32,
+      "playerEconomyPoints": 14,
+      "playerTotalPoints": 63
+    },
+    {
+      "id": "16",
+      "playerID": "Player00016",
+      "playerResearchPoints": 11,
+      "playerFleetPoints": 11,
+      "playerEconomyPoints": 65,
+      "playerTotalPoints": 87
+    },
+    {
+      "id": "17",
+      "playerID": "Player00017",
+      "playerResearchPoints": 10,
+      "playerFleetPoints": 81,
+      "playerEconomyPoints": 42,
+      "playerTotalPoints": 133
+    },
+    {
+      "id": "18",
+      "playerID": "Player00018",
+      "playerResearchPoints": 28,
+      "playerFleetPoints": 24,
+      "playerEconomyPoints": 38,
+      "playerTotalPoints": 90
+    },
+    {
+      "id": "19",
+      "playerID": "Player00019",
+      "playerResearchPoints": 47,
+      "playerFleetPoints": 76,
+      "playerEconomyPoints": 28,
+      "playerTotalPoints": 151
+    },
+    {
+      "id": "20",
+      "playerID": "Player00020",
+      "playerResearchPoints": 71,
+      "playerFleetPoints": 88,
+      "playerEconomyPoints": 36,
+      "playerTotalPoints": 195
+    },
+    {
+      "id": "21",
+      "playerID": "Player00021",
+      "playerResearchPoints": 20,
+      "playerFleetPoints": 13,
+      "playerEconomyPoints": 16,
+      "playerTotalPoints": 49
+    }
+  ]
+}

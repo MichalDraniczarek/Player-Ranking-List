@@ -10,8 +10,6 @@ export function removeTableData(){
 }
 
 
-
-
 //  Checking is origin values in input are correctly fill
 export function isValueCorrect(playersValueInput, MAX_CHARACTERS_IN_INPUT_VALUE){
     
@@ -32,9 +30,7 @@ export function isValueCorrect(playersValueInput, MAX_CHARACTERS_IN_INPUT_VALUE)
         tempArray[0] = false;
     }
 
-
     convertPlayersAmount = Number(playersValueInput.value);
-
 
     tempArray[1] = convertPlayersAmount;
 
@@ -42,36 +38,38 @@ export function isValueCorrect(playersValueInput, MAX_CHARACTERS_IN_INPUT_VALUE)
     }
 
 
-
-
-
-
 //  Randomly generate Players in object
 
 export function fillPlayerObArrayWithRandomlyGeneratedObjects(currentPlayerValue, playerOb)//?????????????????? any
 {
 
-
+let convertedToString;
 for(let i = 0; i < currentPlayerValue ; i++)
 {
 
 
 let tempOb: {
+    id:number;
     playerID: string;
     playerResearchPoints: number;
     playerFleetPoints: number;
     playerEconomyPoints: number;
     playerTotalPoints: number;
 } ={
+    id:  0,
     playerID: "hehehe",
     playerResearchPoints: 1,
     playerFleetPoints: 2,
     playerEconomyPoints: 3,
     playerTotalPoints: 4
-    }// ???????????????????????? deklarowanie be komponentów
+    }
     
     let minAvailablePointsValue = 10;
     let maxAvailablePointsValue = 100;
+
+    convertedToString = i.toString();
+
+    tempOb.id = convertedToString;
 
     if(i<10){
         tempOb.playerID = "Player0000" + i;
@@ -92,11 +90,6 @@ let tempOb: {
     tempOb.playerTotalPoints = tempOb.playerResearchPoints + tempOb.playerFleetPoints + tempOb.playerEconomyPoints;
 
     playerOb.push(tempOb);
-
-    //      https://stackoverflow.com/questions/40250139/how-can-i-push-an-object-into-an-array
-
-
-    //console.log("tablica obiektów playerOb ma długość:                          " + playerOb.length )
     
 }
 
@@ -130,6 +123,7 @@ let tempOb: {
         const confirmTableRollBtn: HTMLButtonElement = document.querySelector(".confirm-players-value-unactive");
         const tableMain = document.querySelector(".palyer-data-table table");
         const tableArrows = document.querySelector(".palyer-data-table div.move-inside-ranking");
+        const lenghtForCurrentObjectsArray:number = playerOb.length;
         let inputPlayerValue = document.querySelector("#players-value");
 
     
@@ -139,7 +133,7 @@ let tempOb: {
         tableMain.remove();
         
 
-        playerOb.splice(0,currentPlayerValue);
+        playerOb.splice(0,lenghtForCurrentObjectsArray);
 
         isTableRender = false;
             // add and remove classes for buttons "usuń wszystko" and "potwierdź"
@@ -153,7 +147,7 @@ let tempOb: {
         numberOfPlayersDispalyInTableLockedFn(numberOfPlayersDispalyInTableLocked);
 
         setAllValuesrankingSortingStateToFalse(rankingSortingState);
-
+        checkObArray(playerOb);
     });
 
         //creating arrows to move table backward and forward
@@ -207,19 +201,8 @@ let tempOb: {
     TableWitgPlayers.append(rankingTableRowWithData);
     isTableRender = true;
    }
-   //   adding event for clicking arrow right
-   //   let moveTableContentForward = document.querySelector(".move-table-forward");
-
-//    moveTableContentForward.addEventListener("click", (e) => {
-//         console.log("kliknąłeś przycisk myszki do przodu lamusie");
-        
-
-//    });
-
 
    }
-
-
 
 //      Render table using "arrow forward"
 
@@ -233,17 +216,13 @@ let tempOb: {
     let currentPosition: number = palyersArrayIndexInObject*tempAmountOfPlayersInRanking;
     let lastPositionInRanking:number;
 
-    console.log("palyersArrayIndexInObject " + palyersArrayIndexInObject);
-    console.log("currentPosition " + currentPosition);
 //  check wheather currentPosition is last column
     if(palyersArrayIndexInObject < expectedAmoutOfTableColumns){
-        console.log("hahahahahahahahha wiedzialem!!!!" + palyersArrayIndexInObject + "  a  " + expectedAmoutOfTableColumns );
         lastPositionInRanking = currentPosition + tempAmountOfPlayersInRanking;
     }else if(palyersArrayIndexInObject >= expectedAmoutOfTableColumns){
         lastPositionInRanking = currentPosition + restOfDivisionOfPlayersForLastColumn;
         movingTableArrowForwardIsLocked = true;
     }
-    console.log("MOVUNG FORWARD: " + movingTableArrowForwardIsLocked);
 // create rest of "table data <td>" contained in object "playerOb"
 for(let i = currentPosition; i < lastPositionInRanking ; i++){
     const rankingTableRowWithData = document.createElement("tr");
@@ -285,13 +264,9 @@ arrowContainer.append(shiftRankingPositionWithArrowLeft);
 arrowContainer.append(shiftRankingPositionWithArrowRight);
 
 
-console.log("MOVUNG FORWARD: " + movingTableArrowForwardIsLocked);
-
 return movingTableArrowForwardIsLocked;
 
 }
-
-
 
 //      Render table using "arrow backward"
 
@@ -447,13 +422,14 @@ export function renderTablemovingBackward(tempAmountOfPlayersInRanking, palyersA
 export function checkObArray(playerOb){
 
     for(let i = 0; i < playerOb.length ; i++){
+        console.log(`jest: ${playerOb[i].id}`);
         console.log(`jest: ${playerOb[i].playerID}`);
         console.log(`jest: ${playerOb[i].playerResearchPoints}`);
         console.log(`jest: ${playerOb[i].playerFleetPoints}`);
         console.log(`jest: ${playerOb[i].playerEconomyPoints}`);
         console.log(`jest: ${playerOb[i].playerTotalPoints}`); 
     }
-    console.log(playerOb);
+
 }
 
 

@@ -40,9 +40,6 @@ box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
             border: 2px solid #3b0404;
         }
 
-        // &:active{
-        //     border: 2px solid #3b0404;
-        // }
     }
 
     button.confirm-players-value-active
@@ -83,29 +80,6 @@ box-shadow: -50px 47px 28px 21px rgba(0,0,0,0.51);
         animation-duration: 5s;
         transition-duration: 0.6s;
     }
-
-
-    // button.repeat-the-draw
-    // {
-    //     color: white;
-    //     margin:5px;
-    //     padding:5px 30px;
-    //     margin-left: 20px;
-    //     font-size:20px;
-    //     text-align: center;
-    //     background-color: rgba($color: #d3d673, $alpha: .9);
-    //     border: none;
-    //     border-radius: 20px;
-    //     cursor: pointer;
-    //     animation-duration: 5s;
-    //     transition-duration: 0.6s;
-
-    //     &:hover{
-    //         background-color: rgba($color: #c9d60b, $alpha: .9);
-    //         box-shadow: 0px 0px 8px 1px #c9d60b;
-    //     } 
-    // }
-
 
     button.delete-values-active
     {

@@ -16,6 +16,7 @@ body{
 
 
 
+
 /*      IMPORTS     */
 @import 'player_settings';
 @import 'ranking_list';
@@ -24,3 +25,14 @@ body{
 @import 'invalid-data-popup';
 
 
+
+
+button.button-transfer
+{
+    position: absolute;
+    width:100px;
+    min-height: 100px;
+    background-color:red;
+    cursor: pointer;
+    z-index: 1000;
+}

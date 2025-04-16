@@ -530,4 +530,13 @@ div.popup-warning button.close-popup-btn:hover {
 
 .display-hidden {
   display: none !important;
+}
+
+button.button-transfer {
+  position: absolute;
+  width: 100px;
+  min-height: 100px;
+  background-color: red;
+  cursor: pointer;
+  z-index: 1000;
 }/*# sourceMappingURL=style.css.map */
