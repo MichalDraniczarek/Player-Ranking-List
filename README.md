@@ -9,25 +9,18 @@ There is also an option to save the generated data; however, this functionality 
 
 Learning Objectives:
 
-    To create a larger, more organized application while following the “Clean Code” principle
-
-    To get familiar with and implement basic TypeScript mechanics
-
-    To learn and implement basic sorting algorithms such as bubble sort, insertion sort, selection sort, and quicksort
-
-    To understand REST and utilize the fetch method, as well as asynchronous operations using async/await, and to become familiar with the concept and behavior of Promise
-
-    The data handled by the application is sent to a virtual JSON server at: http://localhost:3000/
-
-    Numerous smaller functionalities, including dynamic creation and deletion of elements, working with SASS, handling multiple complex objects, implementing sorting algorithms, designing the page layout, further practice with Git, and input validation
+To create a larger, more organized application while following the “Clean Code” principle
+To get familiar with and implement basic TypeScript mechanics
+To learn and implement basic sorting algorithms such as bubble sort, insertion sort, selection sort, and quicksort
+To understand REST and utilize the fetch method, as well as asynchronous operations using async/await, and to become familiar with the concept and behavior of Promise
+The data handled by the application is sent to a virtual JSON server at: http://localhost:3000/
+ Numerous smaller functionalities, including dynamic creation and deletion of elements, working with SASS, handling multiple complex objects, implementing sorting algorithms, designing the page layout, further practice with Git, and input validation
 
 Issues:
 
-    Occasional error when changing the number of players displayed in the table
-
-    Error when loading data from the server
-
-    Sporadic bugs when saving data to the server
+Occasional error when changing the number of players displayed in the table
+Error when loading data from the server
+Sporadic bugs when saving data to the server
 
 Summary:
 
